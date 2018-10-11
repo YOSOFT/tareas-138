@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, AlertController } from "ionic-angular";
 import { TareasProvider } from "../../providers/tareas/tareas";
+import { TareasArchivadasPage } from '../tareas-archivadas/tareas-archivadas';
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -36,5 +37,9 @@ export class HomePage {
       ]
     });
     alerta.present();
+  }
+
+  irPaginaArchivadas(){
+    this.navCtrl.push(TareasArchivadasPage);
   }
 }
