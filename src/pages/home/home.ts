@@ -22,7 +22,7 @@ export class HomePage {
       inputs: [
         {
           type: "text",
-          name: "textoTarea"
+          name: "textoTarea",
         }
       ],
       buttons: [
@@ -39,7 +39,23 @@ export class HomePage {
     alerta.present();
   }
 
+  archivarTarea(indice){
+    this.servicioTareas.archivarTarea(indice);
+  }
+
   irPaginaArchivadas(){
     this.navCtrl.push(TareasArchivadasPage);
+  }
+
+  editarTarea(indice){
+    let alert = this.alerta.create({
+      title: "Editar tarea",
+      inputs: [{
+        type: "text",
+        name: "textoTarea",
+        value: this.tareas[indice]
+      }]
+    });
+    alert.present();
   }
 }

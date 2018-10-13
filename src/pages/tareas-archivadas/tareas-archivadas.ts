@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TareasProvider } from '../../providers/tareas/tareas';
 
 /**
  * Generated class for the TareasArchivadasPage page.
@@ -13,12 +14,13 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tareas-archivadas.html',
 })
 export class TareasArchivadasPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tareas = []
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private servicioTareas: TareasProvider
+    ) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TareasArchivadasPage');
+    this.tareas = this.servicioTareas.obtenerTareasArchivadas();
   }
 
 }
