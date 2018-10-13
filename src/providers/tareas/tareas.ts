@@ -31,6 +31,9 @@ export class TareasProvider {
   crearTarea(tarea){
     this.tareas.push(tarea);
   }
+  editarTarea(textoTarea, indice){
+    this.tareas[indice] = textoTarea;
+  }
 
 
 }

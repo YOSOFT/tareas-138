@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, AlertController } from "ionic-angular";
+import { NavController, AlertController, reorderArray } from "ionic-angular";
 import { TareasProvider } from "../../providers/tareas/tareas";
 import { TareasArchivadasPage } from '../tareas-archivadas/tareas-archivadas';
 @Component({
@@ -54,8 +54,19 @@ export class HomePage {
         type: "text",
         name: "textoTarea",
         value: this.tareas[indice]
+      }
+      ],
+      buttons: [{
+        text: "Listo",
+        handler: (datos) => {
+          this.servicioTareas.editarTarea(datos.textoTarea, indice);
+        }
       }]
     });
     alert.present();
+  }
+  ordenarLista(evento){
+    console.log(evento);
+    reorderArray(this.tareas, evento);
   }
 }

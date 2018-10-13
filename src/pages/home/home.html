@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list reorder (ionItemReorder)="ordenarLista($event)">
     <ion-item-sliding *ngFor="let tarea of tareas; let indice = index">
       <ion-item>{{tarea}}</ion-item>
       <ion-item-options side="right">
